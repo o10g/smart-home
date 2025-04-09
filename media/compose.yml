@@ -5,7 +5,7 @@ services:
   # Personal media server with movies and tv-series
   # moved to proxmox
 
-  # Transmission
+  # QBitTorrent
   # A torrent client for downloading media
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
@@ -16,8 +16,8 @@ services:
       - TZ=Europe/Madrid
       - WEBUI_PORT=8080
     volumes:
-      - /path/to/config:/config           # qBittorrent config files
-      - /path/to/downloads:/downloads     # Where your torrents go
+      - ${DOCKER}/qbittorrent:/config           # qBittorrent config files
+      - ${MEDIA_VOLUME}:/media                  # Where your torrents go
     ports:
       - 8080:8080           # Web UI
       - 6881:6881           # BitTorrent port

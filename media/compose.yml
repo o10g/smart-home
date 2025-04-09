@@ -32,7 +32,7 @@ services:
     env_file: .env
     depends_on:
       - prowlarr
-      - transmission
+      - qbittorrent
     volumes:
       - ${DOCKER}/sonarr:/config
       # Media volumes are organized using this guide:
@@ -50,7 +50,7 @@ services:
     env_file: .env
     depends_on:
       - prowlarr
-      - transmission
+      - qbittorrent
     volumes:
       - ${DOCKER}/radarr:/config
       # Media volumes are organized using this guide:
@@ -66,7 +66,7 @@ services:
     image: lscr.io/linuxserver/prowlarr:latest
     restart: unless-stopped
     depends_on:
-      - transmission
+      - qbittorrent
     volumes:
       - ${DOCKER}/prowlarr:/config
     ports:

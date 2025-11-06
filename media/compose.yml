@@ -115,8 +115,12 @@ services:
     image: ghcr.io/jorenn92/maintainerr:latest
     restart: unless-stopped
     env_file: .env
+    user: 1000:1000
     volumes:
       - ${DOCKER}/maintainerr:/opt/data
+      - type: bind
+        source: ${MEDIA_VOLUME}
+        target: /opt/data
     ports:
       - 6246:6246
 

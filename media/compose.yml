@@ -138,6 +138,18 @@ services:
     ports:
       - 13378:80
 
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=info
+      - LOG_HTML=false
+      - CAPTCHA_SOLVER=none
+      - TZ=UTC
+    ports:
+      - "8191:8191"
+    restart: unless-stopped
+
   # Tautulli
   # A monitoring and tracking tool for Plex Media Server
   # tautulli:

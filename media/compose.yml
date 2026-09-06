@@ -159,6 +159,13 @@ services:
     ports:
       - 8090:8090
 
+  lampa:
+    container_name: lampa
+    image: ghcr.io/lampa-app/lampa:latest
+    restart: unless-stopped
+    ports:
+      - 9118:80
+
   # Tautulli
   # A monitoring and tracking tool for Plex Media Server
   # tautulli:

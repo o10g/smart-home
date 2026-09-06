@@ -150,6 +150,15 @@ services:
       - "8191:8191"
     restart: unless-stopped
 
+  torrserver:
+    container_name: torrserver
+    image: ghcr.io/yourok/torrserver:latest
+    restart: unless-stopped
+    volumes:
+      - ${DOCKER}/torrserver:/ffp/db
+    ports:
+      - 8090:8090
+
   # Tautulli
   # A monitoring and tracking tool for Plex Media Server
   # tautulli:

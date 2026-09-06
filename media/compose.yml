@@ -161,7 +161,7 @@ services:
 
   lampa:
     container_name: lampa
-    image: skam40/lampa:latest
+    image: androschuk/lampa:latest
     restart: unless-stopped
     ports:
       - 9118:80

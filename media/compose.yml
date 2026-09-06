@@ -154,6 +154,9 @@ services:
     container_name: torrserver
     image: ghcr.io/yourok/torrserver:latest
     restart: unless-stopped
+    environment:
+      - TS_PORT=8090
+      - TS_CORSHOST=*
     volumes:
       - ${DOCKER}/torrserver:/ffp/db
     ports:
